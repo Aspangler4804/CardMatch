@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 import authRoutes from './routes/auth.js';
 import cardRoutes from './routes/cards.js';
 import userRoutes from './routes/users.js';
+import paymentRoutes from './routes/payments.ts';
 
 // Load environment variables
 dotenv.config();
@@ -38,9 +39,12 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // API Routes
+//Austin question: where is the api being used i cant find it
+
 app.use('/api/auth', authRoutes);
 app.use('/api/cards', cardRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {

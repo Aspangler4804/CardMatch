@@ -45,6 +45,8 @@ export const getCard = async (req, res, next) => {
 // @route   GET /api/cards/recommendations
 // @access  Private
 
+
+//Need to test this functionality out
 export const getRecommendations = async (req, res, next) => {
   try {
 
