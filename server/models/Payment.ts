@@ -2,11 +2,28 @@
 
 import mongoose from 'mongoose';
 
-const PaymentSchema = new mongoose.Schema({
-    amount: Number,
-    currency: String,
+interface FinancialRecord {
+    userId: string;
+    date: Date;
+    description: string;
+    amount: number;
+    category: string;
+    paymentMethod: string;
+    status: string;
+    createdAt: Date;
+}
+
+
+const PaymentSchema = new mongoose.Schema<FinancialRecord>({
+    userId: {type: String, required: true},
+    date: {type: Date, required: true},
+    description: {type: String, require: true},
+    amount: {type: Number, required: true},
+    category: {type: String, required: true},
+    paymentMethod: {type: String, required: true},
     status: {type:String, default: 'Pending'},
-    createdAt: {type: DataTransfer, default: Date.now }
+    createdAt: {type: Date, default: Date.now }
 });
+
 
 export default mongoose.model('Payment', PaymentSchema);
